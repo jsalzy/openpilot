@@ -20,4 +20,7 @@ if [ -z "$AGNOS_VERSION" ]; then
 fi
 
 export STAGING_ROOT="/data/safe_staging"
-export FINGERPRINT="SUBARU_CROSSTREK_2025"
+# Forced platform. FW fingerprinting cannot match the 2026 Outback yet: only one
+# non-logging ECU answers the firmware query. Override at runtime if needed, e.g.
+#   FINGERPRINT=SUBARU_CROSSTREK_2025 ./launch_openpilot.sh
+export FINGERPRINT="${FINGERPRINT:-SUBARU_OUTBACK_2026}"
